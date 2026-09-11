@@ -1,52 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My To-Do list</title>
-</head>
-<body>
-    <h1 id="heading"> My To-Do List</h1>
-    <input type="text" id="taskInput"  placeholder="Enter a task">
-    <button id="addButton"> Add Task</button>
+# To-Do List App
 
-    <ul id="taskList"></ul>
+A simple, interactive To-Do List built using **vanilla JavaScript**, HTML, and CSS — no frameworks or libraries used. Built as part of my JavaScript learning journey to practice core DOM manipulation concepts.
 
-    <script>
-        let input = document.getElementById("taskInput");
-        let addButton = document.getElementById("addButton");
-        let taskList = document.getElementById("taskList")
+## 🔗 Live Demo
+[Click here to try it out](https://subhashree-ui.github.io/todo-list-app/)
 
-        addButton.addEventListener("click", function(){
-            if(input.value ===""){
-                alert ("please enter a task ");
-                return;
-            }
+## ✨ Features
+- Add new tasks to the list
+- Input validation (prevents adding empty tasks)
+- Mark tasks as complete (click to toggle strikethrough)
+- Delete tasks from the list
 
-            let li = document.createElement ("li");
-            li.textContent = input.value;
+## 🛠️ Built With
+- HTML5
+- CSS3
+- JavaScript (ES6)
 
-            let deleteBtn= document.createElement("button");
-            deleteBtn.textContent ="delete"
+## 📚 Concepts Practiced
+- DOM manipulation (`getElementById`, `createElement`, `appendChild`)
+- Event listeners (`addEventListener`, `stopPropagation`)
+- Conditional logic and input validation
+- Dynamic element creation and removal
 
-            deleteBtn.addEventListener("click", function(event){
-                event.stopPropagation();
-                li.remove();
-            });
+## 🚀 How to Run
+1. Clone or download this repository
+2. Open `todo.html` in any browser
+3. Start adding your tasks!
 
-            li.addEventListener("click", function(){
-                if( li.style.textDecoration === "line-through"){
-                    li.style.textDecoration = "none";
-                } else{
-                    li.style.textDecoration = "line-through";
-                }
-
-            });
-
-            li.appendChild(deleteBtn);
-            taskList.appendChild(li);
-            input.value = "";
-        });
-    </script>
-</body>
-</html> 
+## 📖 What I Learned
+This project helped me understand how JavaScript interacts with the DOM in real-time — creating elements dynamically, handling multiple event listeners, and managing state changes (like toggling a task's completed status) without a framework.
