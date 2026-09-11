@@ -23,9 +23,27 @@
                 return;
             }
 
-
             let li = document.createElement ("li");
             li.textContent = input.value;
+
+            let deleteBtn= document.createElement("button");
+            deleteBtn.textContent ="delete"
+
+            deleteBtn.addEventListener("click", function(event){
+                event.stopPropagation();
+                li.remove();
+            });
+
+            li.addEventListener("click", function(){
+                if( li.style.textDecoration === "line-through"){
+                    li.style.textDecoration = "none";
+                } else{
+                    li.style.textDecoration = "line-through";
+                }
+
+            });
+
+            li.appendChild(deleteBtn);
             taskList.appendChild(li);
             input.value = "";
         });
